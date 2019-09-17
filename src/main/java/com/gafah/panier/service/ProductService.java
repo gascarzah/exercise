@@ -66,7 +66,7 @@ public class ProductService {
         {
             repository.deleteById(id);
         } else {
-            throw new RecordNotFoundException("No employee record exist for given id");
+            throw new RecordNotFoundException("No panier record exist for given id");
         }
     }
 	
