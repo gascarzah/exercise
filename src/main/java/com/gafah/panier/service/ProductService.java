@@ -19,10 +19,10 @@ public class ProductService {
      
     public List<Product> getAllProducts()
     {
-        List<Product> employeeList = repository.findAll();
+        List<Product> productList = repository.findAll();
          
-        if(employeeList.size() > 0) {
-            return employeeList;
+        if(productList.size() > 0) {
+            return productList;
         } else {
             return new ArrayList<Product>();
         }
@@ -30,10 +30,10 @@ public class ProductService {
      
     public Product getProductById(Long id) throws RecordNotFoundException
     {
-        Optional<Product> employee = repository.findById(id);
+        Optional<Product> product = repository.findById(id);
          
-        if(employee.isPresent()) {
-            return employee.get();
+        if(product.isPresent()) {
+            return product.get();
         } else {
             throw new RecordNotFoundException("No product record exist for given id");
         }
@@ -41,11 +41,11 @@ public class ProductService {
      
     public Product createOrUpdateProduct(Product entity) throws RecordNotFoundException
     {
-        Optional<Product> employee = repository.findById(entity.getId());
+        Optional<Product> product = repository.findById(entity.getId());
          
-        if(employee.isPresent())
+        if(product.isPresent())
         {
-            Product newEntity = employee.get();
+            Product newEntity = product.get();
             newEntity.setName(entity.getName());
             newEntity.setPrice(entity.getPrice());
             newEntity = repository.save(newEntity);
@@ -60,9 +60,9 @@ public class ProductService {
      
     public void deleteProductById(Long id) throws RecordNotFoundException
     {
-        Optional<Product> employee = repository.findById(id);
+        Optional<Product> product = repository.findById(id);
          
-        if(employee.isPresent())
+        if(product.isPresent())
         {
             repository.deleteById(id);
         } else {

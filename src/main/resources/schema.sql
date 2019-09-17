@@ -15,3 +15,11 @@ CREATE TABLE PRODUCT (
   name VARCHAR(250) NOT NULL,
   price double NOT NULL
 );
+
+DROP TABLE IF EXISTS panier;
+CREATE TABLE PANIER (
+  id INT AUTO_INCREMENT  PRIMARY KEY,
+  idprod INT not null,
+  name VARCHAR(250) NOT NULL,
+  price double NOT NULL
+);

@@ -15,43 +15,43 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.gafah.panier.exception.RecordNotFoundException;
+import com.gafah.panier.model.Panier;
 import com.gafah.panier.model.Product;
-import com.gafah.panier.service.ProductService;
+import com.gafah.panier.service.PanierService;
 
 @RestController
-@RequestMapping("/products")
-public class ProductyController {
+@RequestMapping("/paniers")
+public class PanierController {
 
 	  @Autowired
-	    ProductService service;
+	    PanierService service;
 	 
 	    @GetMapping
-	    public ResponseEntity<List<Product>> getAllProducts() {
-	        List<Product> list = service.getAllProducts();
-	 
-	        return new ResponseEntity<List<Product>>(list, new HttpHeaders(), HttpStatus.OK);
+	    public ResponseEntity<List<Panier>> getAllPaniers() {
+	        List<Panier> list = service.getAllPaniers();
+	        System.out.println(list.size());
+	        return new ResponseEntity<List<Panier>>(list, new HttpHeaders(), HttpStatus.OK);
 	    }
 	 
 	    @GetMapping("/{id}")
-	    public ResponseEntity<Product> getProductById(@PathVariable("id") Long id)
+	    public ResponseEntity<Panier> getPanierById(@PathVariable("id") Long id)
 	                                                    throws RecordNotFoundException {
-	        Product entity = service.getProductById(id);
-	 
-	        return new ResponseEntity<Product>(entity, new HttpHeaders(), HttpStatus.OK);
+	        Panier entity = service.getPanierById(id);
+	        System.out.println(entity);
+	        return new ResponseEntity<Panier>(entity, new HttpHeaders(), HttpStatus.OK);
 	    }
 	 
-	    @PostMapping
-	    public ResponseEntity<Product> createOrUpdateProduct(@RequestBody Product product)
+	    @PostMapping("/save/{id}")
+	    public ResponseEntity<Panier> createOrUpdatePanier(@PathVariable("id") Long id)
 	                                                    throws RecordNotFoundException {
-	    	System.out.println(product);
-	        Product updated = service.createOrUpdateProduct(product);
-	        return new ResponseEntity<Product>(updated, new HttpHeaders(), HttpStatus.OK);
+	        Panier updated = service.createOrUpdatePanier(id);
+	        return new ResponseEntity<Panier>(updated, new HttpHeaders(), HttpStatus.OK);
 	    }
 	 
-	    @DeleteMapping("/{id}")
-	    public HttpStatus deleteProductById(@PathVariable("id") Long id)
+	    @DeleteMapping("/delete/{id}")
+	    public HttpStatus deletePanierById(@PathVariable("id") Long id)
 	                                                    throws RecordNotFoundException {
-	        service.deleteProductById(id);
+	        service.deletePanierById(id);
 	        return HttpStatus.OK;
 	    }
 	
