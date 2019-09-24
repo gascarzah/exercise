@@ -6,12 +6,12 @@ selon l'énoncé
 
 Produisez un api REST qui permet les scénarios suivants:
 
-Afficher un catalogue de produits (Class = ProductyController, method = getAllProducts)
-Afficher le détail d’un produit    (Class = ProductyController, method = getProductById)
-Ajouter un produit au panier       (Class = PanierController, method = createOrUpdatePanier)
-Enlever un produit du panier      (Class = PanierController, method = deletePanierById)
-Afficher le contenu du panier      (Class = PanierController, method = getAllPaniers)
-(Bonus) Connexion et déconnexion à un compte utilisateur  (Conexion, Class = UserController,  method = getUser)
+1) Afficher un catalogue de produits (Class = ProductyController, method = getAllProducts)
+2) Afficher le détail d’un produit    (Class = ProductyController, method = getProductById)
+3) Ajouter un produit au panier       (Class = PanierController, method = createOrUpdatePanier)
+4) Enlever un produit du panier      (Class = PanierController, method = deletePanierById)
+5) Afficher le contenu du panier      (Class = PanierController, method = getAllPaniers)
+6) (Bonus) Connexion et déconnexion à un compte utilisateur  (Conexion, Class = UserController,  method = getUser)
 
 
 Installation
